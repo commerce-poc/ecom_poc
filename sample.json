@@ -1,0 +1,48 @@
+{"Product_Insert" :
+    {
+        "name":"Name Here",
+        "sku" : "Sku here",
+        "is_parent":1,
+        "is_configuable":1,
+        "qty":0,
+        "price":0,
+        "childs":[
+            {
+                "sku":"Sku here",
+                "name":"Name Here",
+                "img":"Img url",
+                "price":200,
+                "qty":100,
+                "attributes":{
+                    "1" : "1",
+                    "2" : "1",
+                    "1" : "3"
+                }
+            },
+            {
+                "sku":"Sku here",
+                "name":"Name Here",
+                "img":"Img url",
+                "price":200,
+                "qty":100,
+                "attributes":{
+                    "1" : "1",
+                    "2" : "1",
+                    "1" : "3"
+                }
+            },
+            {
+                "sku":"Sku here",
+                "name":"Name Here",
+                "img":"Img url",
+                "price":200,
+                "qty":100,
+                "attributes":{
+                    "1" : "1",
+                    "2" : "1",
+                    "1" : "3"
+                }
+            }
+        ]
+    }
+}

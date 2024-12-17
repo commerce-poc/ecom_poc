@@ -19,9 +19,9 @@ const tables = [
     `,
   },
   {
-    name: "attributes",
+    name: "product_attributes",
     createQuery: `
-      CREATE TABLE IF NOT EXISTS attributes (
+      CREATE TABLE IF NOT EXISTS product_attributes (
         attribute_id SERIAL PRIMARY KEY,
         attribute_name VARCHAR(255) NOT NULL,
         attribute_type VARCHAR(255) NOT NULL
@@ -33,8 +33,9 @@ const tables = [
     createQuery: `
       CREATE TABLE IF NOT EXISTS attributes_value (
         value_id SERIAL PRIMARY KEY,
-        attribute_id VARCHAR(255) NOT NULL,
-        value VARCHAR(255) NOT NULL
+        attribute_id INT NOT NULL,
+        value VARCHAR(255) NOT NULL,
+        FOREIGN KEY (attribute_id) REFERENCES product_attributes(attribute_id) ON DELETE CASCADE
       );
     `,
   },
@@ -43,8 +44,11 @@ const tables = [
     createQuery: `
       CREATE TABLE IF NOT EXISTS attributes_entity (
         p_id INT NOT NULL,
-        attribute_id VARCHAR(255) NOT NULL,
-        value_id VARCHAR(255) NOT NULL
+        attribute_id INT NOT NULL,
+        value_id INT NOT NULL,
+        FOREIGN KEY (p_id) REFERENCES products(p_id) ON DELETE CASCADE,
+        FOREIGN KEY (attribute_id) REFERENCES product_attributes(attribute_id) ON DELETE CASCADE,
+        FOREIGN KEY (value_id) REFERENCES attributes_value(value_id) ON DELETE CASCADE
       );
     `,
   },
