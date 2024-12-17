@@ -71,9 +71,9 @@ async function setupDb() {
           WHERE table_name = '${table.name}'
         ) AS table_existence;
       `;
-      // console.log(checkTableQuery)
+
       const res = await db.query(checkTableQuery);
-      // console.log(table.name,res)
+
       // If the table doesn't exist, create it
       if (res.rows[0].table_existence === false) {
         console.log(`Table "${table.name}" does not exist. Creating it...`);
