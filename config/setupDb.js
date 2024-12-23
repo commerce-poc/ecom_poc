@@ -52,6 +52,16 @@ const tables = [
       );
     `,
   },
+  {
+    name: "admin_user",
+    createQuery: `
+      CREATE TABLE IF NOT EXISTS admin_user (
+        admin_id SERIAL NOT NULL,
+        username VARCHAR(255) NOT NULL UNIQUE,
+        password VARCHAR(255) NOT NULL
+      );
+    `,
+  },
 ];
 
 async function setupDb() {
